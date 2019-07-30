@@ -1,0 +1,24 @@
+<div class="ui dialog content ui-widget-content">
+        <div class="container">
+            <form>
+                <div>
+                    <h5><strong>Following details will be deleted. Are you sure?</strong></h5>
+                    <br>
+                    <ul>
+                        <li><i>Employee Id :{{_employee.empID}}</i></li>
+                        <li><i>Employee Name :{{_employee.empName}}</i></li>
+                        <li><i>Organization :{{_employee.organization}}</i></li> 
+                        <li><i>Role :{{_employee.role}}</i></li>             
+                        <li><i>Project  :{{_employee.project}}</i></li>
+
+                    </ul>
+                </div>
+                <br>
+                
+                <div>
+                    <button (click)="onClickYes()" type="submit" class="btn btn-big btn-success">Yes</button>&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;<button class="btn btn-big btn-danger" (click)="closeModal()">No</button>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,44 @@
+<div class="ui dialog content ui-widget-content mw-40 w-30">
+        <div class="container">
+                <form [formGroup]="updateEmployeeForm" (ngSubmit)="onUpdateEmployee(updateEmployeeForm.value)"
+                        class="ng-untouched ng-pristine ng-invalid">
+                        <br>
+                        <div class="form-group">
+                                <label for="id"><strong>ID:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="empID" id="empID">
+                        </div>
+                        <div class="form-group">
+                                <label for="Name"><strong>Name:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="empName" id="empName">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="Organization"><strong>Organization:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="organization" id="organization">
+                        </div>
+                        <div class="form-group">
+                                <label for="Role"><strong>Role:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="role" id="role">
+                        </div>
+                        <div class="form-group">
+                                <label for="Project"><strong>Project:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="project" id="project">
+                        </div>
+                        <div class="form-group">
+                                <label for="Location"><strong>Location:</strong></label>
+                                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid"
+                                        formControlName="location" id="location">
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-success" style="margin-right: 16px">Update</button>
+                        <button class="btn btn-sm btn-danger" (click)="closeModal()">Cancel</button>
+                        <br>
+                        <br>
+                </form>
+
+        </div>
+</div>

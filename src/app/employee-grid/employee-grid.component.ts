@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../Employee';
 import { EmployeeService } from '../employee.service';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
+import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-grid',
@@ -9,19 +13,66 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeGridComponent implements OnInit {
 
-  employeeList:Employee[] = [];
+  employeeList: Employee[] = [];
 
-  constructor(private employeeService:EmployeeService) { }
+  disabled = false;
+  constructor(public activeModal: NgbActiveModal, private employeeService: EmployeeService, private modalService: NgbModal) { }
 
   ngOnInit() {
-
-    this.employeeService.getEmployees().subscribe(data => this.employeeList = data);
+  
+    this.employeeService.getEmployees().subscribe((data) => {
+                                        this.employeeList = data;console.log(data)});
   }
 
-  onDelete(index:number,id:number){
-    console.log("Index is "+index+" Id is "+id);
-    this.employeeList.splice(index,1);
-    this.employeeService.deleteEmployee(id).subscribe(data => console.log("deleted",data));
+
+
+  openUpdateFormModal(employee: Employee) {
+    console.log(employee);
+      const modalRef = this.modalService.open(UpdateEmployeeComponent);
+      modalRef.result.then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        console.log(error);
+      });
+      console.log("******** " + employee.empID);
+     // this.renderOnForm(employee);
+    } 
+
+  
+
+  openDeleteFormModal(employee:Employee){
+
+    const modalRef = this.modalService.open(DeleteModalComponent);
+      modalRef.componentInstance.employee = employee;
+      modalRef.result.then((result) => {
+        console.log(result);
+      }).catch((error) => {
+        console.log(error);
+      });
+      console.log("******** " + employee.empID);
   }
+  
+  // renderOnForm(_employee:Employee){
+  //   console.log("######### Data "+_employee.empID);
+  //   this.updateEmployeeForm.setValue({
+  //     empID: _employee.empID,
+  //     empName: _employee.empName,
+  //     organization:_employee.organization,
+  //     role: _employee.role,
+  //     project: _employee.project,
+  //     location: _employee.location
+  //   })
+  //   this.disabled = true;
+  // }
+
+  isDisabled(){
+    this.disabled = true;
+  }
+
+
+
+
+
+
 
 }

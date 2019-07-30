@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-add-search',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-search.component.css']
 })
 export class AddSearchComponent implements OnInit {
+  
 
-  constructor() { }
+
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
+
+  
+  openFormModal() {
+    const modalRef = this.modalService.open(AddEmployeeComponent);
+    
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+
 
 }

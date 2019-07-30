@@ -1,0 +1,76 @@
+<div class="ui dialog content ui-widget-content mw-40 w-30">
+    <div class="container">
+        <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployee(employeeForm.value)"
+            class="ng-untouched ng-pristine ng-invalid">
+            <br>
+            <div class="form-group">
+                <label for="name"><strong>Name:</strong></label>
+                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="empName"
+                    id="empName" placeholder="Enter Name">
+                <div *ngIf="employeeForm.get('empName').hasError('required')
+                            && employeeForm.get('empName').touched" class="text-danger">'Name' is a mandatory field.
+                </div>
+                <div *ngIf="employeeForm.get('empName').hasError('minlength')
+                            && employeeForm.get('empName').touched" class="text-danger">Minimum Length is 6.</div>
+
+                <div *ngIf="employeeForm.get('empName').hasError('pattern') && !employeeForm.get('empName').hasError('minlength')
+                            && employeeForm.get('empName').touched" class="text-danger">Only Alphabets are allowed.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="organization"><strong>Organization:</strong></label>
+                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="organization"
+                    id="organization" placeholder="Enter Organization">
+                <div *ngIf="employeeForm.get('organization').hasError('required')
+                    && employeeForm.get('organization').touched" class="text-danger">'Organization' is a mandatory
+                    field.
+                </div>
+                <div *ngIf="employeeForm.get('organization').hasError('minlength')
+                    && employeeForm.get('organization').touched" class="text-danger">Minimum Length is 6.</div>
+                <div *ngIf="employeeForm.get('organization').hasError('pattern') && !employeeForm.get('organization').hasError('minlength')
+                    && employeeForm.get('organization').touched" class="text-danger">Only Alphabets are allowed.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="Role"><strong>Role:</strong></label>
+                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="role"
+                    id="role" placeholder="Enter Role">
+                <div *ngIf="employeeForm.get('role').hasError('required')
+                    && employeeForm.get('role').touched" class="text-danger">'Role' is a mandatory field.
+                </div>
+                <div *ngIf="employeeForm.get('role').hasError('minlength')
+                && employeeForm.get('role').touched" class="text-danger">Minimum Length is 6.</div>
+                <div *ngIf="employeeForm.get('role').hasError('pattern') && !employeeForm.get('role').hasError('minlength')
+                && employeeForm.get('role').touched" class="text-danger">Only Alphabets are allowed.</div>
+            </div>
+            <div class="form-group">
+                <label for="name"><strong>Project:</strong></label>
+                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="project"
+                    id="project" placeholder="Enter Project">
+                <div *ngIf="employeeForm.get('project').hasError('required')
+                    && employeeForm.get('project').touched" class="text-danger">'Project' is a mandatory field.
+                </div>
+                <div *ngIf="employeeForm.get('project').hasError('minlength')
+                && employeeForm.get('project').touched" class="text-danger">Minimum Length is 6.</div>
+            </div>
+            <div class="form-group">
+                <label for="name"><strong>Location:</strong></label>
+                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="location"
+                    id="location" placeholder="Enter Location">
+                <div *ngIf="employeeForm.get('location').hasError('required')
+                    && employeeForm.get('location').touched" class="text-danger">'Location' is a mandatory field.
+                </div>
+                <div *ngIf="employeeForm.get('location').hasError('minlength')
+                && employeeForm.get('location').touched" class="text-danger">Minimum Length is 6.</div>
+                <div *ngIf="employeeForm.get('location').hasError('pattern') && !employeeForm.get('location').hasError('minlength')
+                && employeeForm.get('location').touched" class="text-danger">Only Alphabets are allowed.</div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success" style="margin-right: 16px" [disabled]="employeeForm.valid == false">Submit</button>
+            <button class="btn btn-sm btn-danger" (click)="closeModal()">Cancel</button>
+            <br>
+            <br>
+        </form>
+
+    </div>
+</div>

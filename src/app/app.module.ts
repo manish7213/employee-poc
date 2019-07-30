@@ -9,8 +9,13 @@ import { AddSearchComponent } from './add-search/add-search.component';
 import { EmployeeGridComponent } from './employee-grid/employee-grid.component';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { ConfirmComponent } from './Shared/confirm/confirm.component';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+
+
 
 
 @NgModule({
@@ -21,15 +26,24 @@ import { ConfirmComponent } from './Shared/confirm/confirm.component';
     EmployeeComponent,
     AddSearchComponent,
     EmployeeGridComponent,
-    ConfirmComponent
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    DeleteModalComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BootstrapModalModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [EmployeeService],
-  bootstrap: [AppComponent]
+  providers: [EmployeeService,NgbActiveModal],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AddEmployeeComponent,
+    UpdateEmployeeComponent,
+    DeleteModalComponent
+  ]
 })
 export class AppModule { }

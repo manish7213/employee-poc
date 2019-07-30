@@ -1,7 +1,9 @@
 <div class="container">
-        <table class="table table-striped">
-                <thead>
-                <tr>
+    
+    <table class="table table-striped">
+        <thead>
+                <h3><Strong>Employee Details</Strong></h3>
+            <tr>   
                 <th>S.No.</th>
                 <th>Employee Id</th>
                 <th>Name</th>
@@ -10,25 +12,27 @@
                 <th>Project</th>
                 <th>Location</th>
                 <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <ng-container *ngFor="let emp of employeeList; index as i">
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor='let emp of employeeList; index as i'>
                 <tr>
-                <td>{{ i+1 }}</td>
-                <td>{{ emp.empID }}</td>
-                <td>{{ emp.empName }}</td>
-                <td>{{ emp.organization }}</td>
-                <td>{{ emp.role }}</td>
-                <td>{{ emp.project }}</td>
-                <td>{{ emp.location }}</td>
-                <td>
-                    <button type="button" class="btn btn-primary btn-sm btn-space">Update</button>
-                    <button (click)="onDelete(i,emp.empID)" type="button" class="btn btn-danger btn-sm btn-space">Delete</button>
-                   
-                </td>
+                    <td>{{ i+1 }}</td>
+                    <td>{{ emp.empID }}</td>
+                    <td>{{ emp.empName }}</td>
+                    <td>{{ emp.organization }}</td>
+                    <td>{{ emp.role }}</td>
+                    <td>{{ emp.project }}</td>
+                    <td>{{ emp.location }}</td>
+                    <td>
+                        <button (click)="openUpdateFormModal(emp)" type="button"
+                            class="btn btn-primary btn-sm btn-space">Update</button>
+                        <button (click)="openDeleteFormModal(emp)" type="button"
+                             class="btn btn-danger btn-sm btn-space">Delete</button>
+
+                    </td>
                 </tr>
             </ng-container>
-                </tbody>
-                </table>
-    </div>
+        </tbody>
+    </table>
+</div>
