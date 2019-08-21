@@ -14,6 +14,8 @@ export class AddEmployeeComponent implements OnInit {
 
   employeeForm: FormGroup;
 
+  disableClear: boolean = true;
+
   constructor(public activeModal: NgbActiveModal, private employeeService: EmployeeService) { }
 
   closeModal() {
@@ -39,6 +41,21 @@ export class AddEmployeeComponent implements OnInit {
       .subscribe((data) => console.log("added ", data));
 
     this.closeModal();
+  }
+
+  clear(){
+
+    this.employeeForm.reset();
+    this.disableClear = true;
+  }
+
+  inputValue() {
+
+    if(this.employeeForm.value.empName != '' || this.employeeForm.value.organization != '' || this.employeeForm.value.role != '' || this.employeeForm.value.project != '' || this.employeeForm.value.location != ''){
+      this.disableClear = false;
+    } else {
+      this.disableClear = true;
+    }
   }
 
 
