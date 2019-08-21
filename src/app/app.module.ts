@@ -12,8 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { UpdateModalComponent } from './employee-grid/update-modal/update-modal.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+
 
 
 
@@ -27,8 +32,10 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
     AddSearchComponent,
     EmployeeGridComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    UpdateModalComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     NgbModule,
@@ -36,13 +43,16 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    AngularFontAwesomeModule,
+    
   ],
   providers: [EmployeeService,NgbActiveModal],
   bootstrap: [AppComponent],
   entryComponents: [
     AddEmployeeComponent,
-    UpdateEmployeeComponent,
+    UpdateModalComponent,
     DeleteModalComponent
   ]
 })

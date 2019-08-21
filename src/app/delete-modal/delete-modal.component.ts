@@ -13,15 +13,13 @@ export class DeleteModalComponent implements OnInit {
   @Input() employee: Employee;
   _employee: Employee
   employeeList:Employee[]=[];
+  @Output() passDeleteEntry: EventEmitter<any> = new EventEmitter();
+  status = 'delete'
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this._employee = this.employee;
-    console.log('in the delete component');
-
-    console.log(this._employee.empID);
-    this.employeeService.getEmployees().subscribe((data) => {
-      this.employeeList = data;console.log(data)});
+   
   }
 
 
@@ -29,19 +27,16 @@ export class DeleteModalComponent implements OnInit {
     this.activeModal.close('Modal Closed');
   }
 
-  deleteFromList(id:String){
-
-    for(var i=0;i<this.employeeList.length;i++){
-        if(this.employeeList[i].empID === id){
-          this.employeeList.splice(i);
-        }
-    }
-  }
   onClickYes() {
     console.log(Number(this.employee.empID));
-    this.employeeService.deleteEmployee(Number(this.employee.empID)).subscribe(data => this.deleteFromList(data.empID));
+    this.employeeService.deleteEmployee(Number(this.employee.empID)).subscribe(data => console.log(data.empID));
+    this.passBack();
     this.closeModal();
   }
+
+  passBack() {
+    this.passDeleteEntry.emit(this.status);
+    }
 
 
 }

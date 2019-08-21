@@ -1,0 +1,81 @@
+<div class="ui dialog content ui-widget-content mw-40 w-30">
+    <div class="container">
+            <form [formGroup]="updateEmployeeForm" (ngSubmit)="onUpdateEmployee(updateEmployeeForm.value)"
+                    class="ng-untouched ">
+                    <br>
+                    <div class="form-group">
+                            <label for="empID"><strong>ID:</strong></label>
+                            <input class="form-control input-sm"
+                                    formControlName="empID" id="empID" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><strong>Name:</strong></label>
+                        <input class="form-control input-sm" formControlName="empName"
+                            id="empName" placeholder="Enter Name">
+                        <div *ngIf="updateEmployeeForm.get('empName').hasError('required')
+                                    && updateEmployeeForm.get('empName').touched" class="text-danger">'Name' is a mandatory field.
+                        </div>
+                        <div *ngIf="updateEmployeeForm.get('empName').hasError('minlength')
+                                    && updateEmployeeForm.get('empName').touched" class="text-danger">Minimum Length is 6.</div>
+        
+                        <div *ngIf="updateEmployeeForm.get('empName').hasError('pattern') && !updateEmployeeForm.get('empName').hasError('minlength')
+                                    && updateEmployeeForm.get('empName').touched" class="text-danger">Only Alphabets are allowed.
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="organization"><strong>Organization:</strong></label>
+                        <input class="form-control input-sm" formControlName="organization"
+                            id="organization" placeholder="Enter Organization">
+                        <div *ngIf="updateEmployeeForm.get('organization').hasError('required')
+                            && updateEmployeeForm.get('organization').touched" class="text-danger">'Organization' is a mandatory
+                            field.
+                        </div>
+                        <div *ngIf="updateEmployeeForm.get('organization').hasError('minlength')
+                            && updateEmployeeForm.get('organization').touched" class="text-danger">Minimum Length is 6.</div>
+                        <div *ngIf="updateEmployeeForm.get('organization').hasError('pattern') && !updateEmployeeForm.get('organization').hasError('minlength')
+                            && updateEmployeeForm.get('organization').touched" class="text-danger">Only Alphabets are allowed.</div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="role"><strong>Role:</strong></label>
+                        <input class="form-control input-sm" formControlName="role"
+                            id="role" placeholder="Enter Role">
+                        <div *ngIf="updateEmployeeForm.get('role').hasError('required')
+                            && updateEmployeeForm.get('role').touched" class="text-danger">'Role' is a mandatory field.
+                        </div>
+                        <div *ngIf="updateEmployeeForm.get('role').hasError('minlength')
+                        && updateEmployeeForm.get('role').touched" class="text-danger">Minimum Length is 6.</div>
+                        <div *ngIf="updateEmployeeForm.get('role').hasError('pattern') && !updateEmployeeForm.get('role').hasError('minlength')
+                        && updateEmployeeForm.get('role').touched" class="text-danger">Only Alphabets are allowed.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="project"><strong>Project:</strong></label>
+                        <input class="form-control input-sm" formControlName="project"
+                            id="project" placeholder="Enter Project">
+                        <div *ngIf="updateEmployeeForm.get('project').hasError('required')
+                            && updateEmployeeForm.get('project').touched" class="text-danger">'Project' is a mandatory field.
+                        </div>
+                        <div *ngIf="updateEmployeeForm.get('project').hasError('minlength')
+                        && updateEmployeeForm.get('project').touched" class="text-danger">Minimum Length is 6.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="location"><strong>Location:</strong></label>
+                        <input class="form-control input-sm" formControlName="location"
+                            id="location" placeholder="Enter Location">
+                        <div *ngIf="updateEmployeeForm.get('location').hasError('required')
+                            && updateEmployeeForm.get('location').touched" class="text-danger">'Location' is a mandatory field.
+                        </div>
+                        <div *ngIf="updateEmployeeForm.get('location').hasError('minlength')
+                        && updateEmployeeForm.get('location').touched" class="text-danger">Minimum Length is 6.</div>
+                        <div *ngIf="updateEmployeeForm.get('location').hasError('pattern') && !updateEmployeeForm.get('location').hasError('minlength')
+                        && updateEmployeeForm.get('location').touched" class="text-danger">Only Alphabets are allowed.</div>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-success" style="margin-right: 16px" [disabled]="updateEmployeeForm.valid == false">Update</button>
+                    <button class="btn btn-sm btn-danger" (click)="closeModal()">Cancel</button>
+                    <br>
+                    <br>
+            </form>
+
+    </div>
+</div>

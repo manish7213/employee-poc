@@ -11,7 +11,6 @@ import { EmployeeService } from '../employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  employeeList: Employee[] = [];
 
   employeeForm: FormGroup;
 
@@ -33,15 +32,12 @@ export class AddEmployeeComponent implements OnInit {
 
   }
 
-  onAddEmployee(employee:Employee) {
+  onAddEmployee(employee: Employee) {
 
     console.log("Employee is " + employee);
     this.employeeService.addEmployee(employee)
-                        .subscribe((data) => {
-                                    this.employeeList
-                                       .push(employee);console.log("added ", data)
-                                      })
-    this.employeeList.push(employee);
+      .subscribe((data) => console.log("added ", data));
+
     this.closeModal();
   }
 

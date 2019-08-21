@@ -1,9 +1,16 @@
 <div class="container">
-    
+    <div class="search-hero">
+       Search: <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Start searching for an employee by id or name">
+    </div>
+    <br>
+
+</div>
+<div class="container">
     <table class="table table-striped">
         <thead>
-                <h3><Strong>Employee Details</Strong></h3>
-            <tr>   
+            <h3><Strong>Employee Details</Strong></h3>
+            <tr>
                 <th>S.No.</th>
                 <th>Employee Id</th>
                 <th>Name</th>
@@ -15,8 +22,8 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor='let emp of employeeList; index as i'>
-                <tr>
+            <ng-container>
+                <tr *ngFor="let emp of employeeList | filter : searchText;index as i">
                     <td>{{ i+1 }}</td>
                     <td>{{ emp.empID }}</td>
                     <td>{{ emp.empName }}</td>
@@ -28,7 +35,7 @@
                         <button (click)="openUpdateFormModal(emp)" type="button"
                             class="btn btn-primary btn-sm btn-space">Update</button>
                         <button (click)="openDeleteFormModal(emp)" type="button"
-                             class="btn btn-danger btn-sm btn-space">Delete</button>
+                            class="btn btn-danger btn-sm btn-space">Delete</button>
 
                     </td>
                 </tr>

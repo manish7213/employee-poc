@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddSearchComponent implements OnInit {
   
 
-
+  modalOption: NgbModalOptions = {};
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -19,7 +19,9 @@ export class AddSearchComponent implements OnInit {
 
   
   openFormModal() {
-    const modalRef = this.modalService.open(AddEmployeeComponent);
+    this.modalOption.backdrop = 'static';
+    this.modalOption.keyboard = false;
+    const modalRef = this.modalService.open(AddEmployeeComponent,this.modalOption);
     
     modalRef.result.then((result) => {
       console.log(result);

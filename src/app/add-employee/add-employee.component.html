@@ -1,14 +1,13 @@
 <div class="ui dialog content ui-widget-content mw-40 w-30">
     <div class="container">
-        <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployee(employeeForm.value)"
-            class="ng-untouched ng-pristine ng-invalid">
+        <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployee(employeeForm.value)">
             <br>
             <div class="form-group">
-                <label for="name"><strong>Name:</strong></label>
-                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="empName"
+                <label for="empName"><strong>Name:</strong></label>
+                <input class="form-control input-sm" formControlName="empName"
                     id="empName" placeholder="Enter Name">
                 <div *ngIf="employeeForm.get('empName').hasError('required')
-                            && employeeForm.get('empName').touched" class="text-danger">'Name' is a mandatory field.
+                            && employeeForm.get('empName').touched" class="text-danger">Name is a mandatory field.
                 </div>
                 <div *ngIf="employeeForm.get('empName').hasError('minlength')
                             && employeeForm.get('empName').touched" class="text-danger">Minimum Length is 6.</div>
@@ -20,7 +19,7 @@
 
             <div class="form-group">
                 <label for="organization"><strong>Organization:</strong></label>
-                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="organization"
+                <input class="form-control input-sm" formControlName="organization"
                     id="organization" placeholder="Enter Organization">
                 <div *ngIf="employeeForm.get('organization').hasError('required')
                     && employeeForm.get('organization').touched" class="text-danger">'Organization' is a mandatory
@@ -33,8 +32,8 @@
             </div>
 
             <div class="form-group">
-                <label for="Role"><strong>Role:</strong></label>
-                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="role"
+                <label for="role"><strong>Role:</strong></label>
+                <input class="form-control input-sm" formControlName="role"
                     id="role" placeholder="Enter Role">
                 <div *ngIf="employeeForm.get('role').hasError('required')
                     && employeeForm.get('role').touched" class="text-danger">'Role' is a mandatory field.
@@ -45,8 +44,8 @@
                 && employeeForm.get('role').touched" class="text-danger">Only Alphabets are allowed.</div>
             </div>
             <div class="form-group">
-                <label for="name"><strong>Project:</strong></label>
-                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="project"
+                <label for="project"><strong>Project:</strong></label>
+                <input class="form-control input-sm" formControlName="project"
                     id="project" placeholder="Enter Project">
                 <div *ngIf="employeeForm.get('project').hasError('required')
                     && employeeForm.get('project').touched" class="text-danger">'Project' is a mandatory field.
@@ -55,8 +54,8 @@
                 && employeeForm.get('project').touched" class="text-danger">Minimum Length is 6.</div>
             </div>
             <div class="form-group">
-                <label for="name"><strong>Location:</strong></label>
-                <input class="form-control input-sm ng-untouched ng-pristine ng-invalid" formControlName="location"
+                <label for="location"><strong>Location:</strong></label>
+                <input class="form-control input-sm" formControlName="location"
                     id="location" placeholder="Enter Location">
                 <div *ngIf="employeeForm.get('location').hasError('required')
                     && employeeForm.get('location').touched" class="text-danger">'Location' is a mandatory field.
