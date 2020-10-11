@@ -116,6 +116,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "employee-poc"
+    }
+  },
+  "defaultProject": "employee-poc",
+  "cli": {
+    "analytics": false
+  }
 }
